@@ -285,7 +285,7 @@ describe('immutable-core-model-form', function () {
             var address = await addressModel.create(input)
         }
         catch (err) {
-            var errors = err
+            var error = err
         }
         // create new form
         var addressForm = new ImmutableCoreModelForm({
@@ -293,7 +293,7 @@ describe('immutable-core-model-form', function () {
         })
         // create new instance
         addressForm = addressForm.newInstance({
-            errors: errors,
+            error: error,
             input: input,
         })
 
