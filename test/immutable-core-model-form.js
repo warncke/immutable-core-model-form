@@ -134,9 +134,9 @@ describe('immutable-core-model-form', function () {
                     label: 'State',
                     inputType: 'select',
                     options: [
-                        {key: 'AL', value: 'AL'},
-                        {key: 'AK', value: 'AK'},
-                        {key: 'AZ', value: 'AZ'},
+                        {title: 'AL', value: 'AL'},
+                        {title: 'AK', value: 'AK'},
+                        {title: 'AZ', value: 'AZ'},
                     ],
                     required: true,
                     name: 'address[addressRegion]',
