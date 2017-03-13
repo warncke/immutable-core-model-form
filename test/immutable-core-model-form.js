@@ -262,7 +262,7 @@ describe('immutable-core-model-form', function () {
         assert.containSubset(addressForm.fields, [
             { property: 'addressCountry', value: 'US' },
             { property: 'addressLocality', value: 'foo' },
-            { property: 'addressRegion', value: 'AL' },
+            { property: 'addressRegion', value: 'AL', options: [ {selected: true, value: 'AL'} ] },
             { property: 'firstName', value: 'foo' },
             { property: 'lastName', value: 'foo' },
             { property: 'postalCode', value: '12345' },
