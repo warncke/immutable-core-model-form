@@ -58,71 +58,69 @@ describe('immutable-core-model-form - array of objects schema', function () {
                         type: 'string',
                     },
                     hoursOfOperation: {
-                        items: [
-                            {
-                                properties: {
-                                    fromDay: {
-                                        enum: [
-                                            'Sunday',
-                                            'Monday',
-                                            'Tuesday',
-                                            'Wednesday',
-                                            'Thursday',
-                                            'Friday',
-                                            'Saturday',
-                                        ],
-                                        type: 'string',
-                                    },
-                                    toDay: {
-                                        enum: [
-                                            'Sunday',
-                                            'Monday',
-                                            'Tuesday',
-                                            'Wednesday',
-                                            'Thursday',
-                                            'Friday',
-                                            'Saturday',
-                                        ],
-                                        type: 'string',
-                                    },
-                                    fromHourOne: {
-                                        errors: {
-                                            pattern: 'Enter time as HH:MM like 09:30',
-                                        },
-                                        pattern: '^\\d{2}:\\d{2}$',
-                                        type: 'string',
-                                    },
-                                    toHourOne: {
-                                        errors: {
-                                            pattern: 'Enter time as HH:MM like 09:30',
-                                        },
-                                        pattern: '^\\d{2}:\\d{2}$',
-                                        type: 'string',
-                                    },
-                                    fromHourTwo: {
-                                        errors: {
-                                            pattern: 'Enter time as HH:MM like 09:30',
-                                        },
-                                        pattern: '^(\\d{2}:\\d{2})?$',
-                                        type: 'string',
-                                    },
-                                    toHourTwo: {
-                                        errors: {
-                                            pattern: 'Enter time as HH:MM like 09:30',
-                                        },
-                                        pattern: '^(\\d{2}:\\d{2})?$',
-                                        type: 'string',
-                                    },
+                        items: {
+                            properties: {
+                                fromDay: {
+                                    enum: [
+                                        'Sunday',
+                                        'Monday',
+                                        'Tuesday',
+                                        'Wednesday',
+                                        'Thursday',
+                                        'Friday',
+                                        'Saturday',
+                                    ],
+                                    type: 'string',
                                 },
-                                required: [
-                                    'fromDay',
-                                    'toDay',
-                                    'fromHourOne',
-                                    'toHourOne',
-                                ],
-                                type: 'object',
+                                toDay: {
+                                    enum: [
+                                        'Sunday',
+                                        'Monday',
+                                        'Tuesday',
+                                        'Wednesday',
+                                        'Thursday',
+                                        'Friday',
+                                        'Saturday',
+                                    ],
+                                    type: 'string',
+                                },
+                                fromHourOne: {
+                                    errors: {
+                                        pattern: 'Enter time as HH:MM like 09:30',
+                                    },
+                                    pattern: '^\\d{2}:\\d{2}$',
+                                    type: 'string',
+                                },
+                                toHourOne: {
+                                    errors: {
+                                        pattern: 'Enter time as HH:MM like 09:30',
+                                    },
+                                    pattern: '^\\d{2}:\\d{2}$',
+                                    type: 'string',
+                                },
+                                fromHourTwo: {
+                                    errors: {
+                                        pattern: 'Enter time as HH:MM like 09:30',
+                                    },
+                                    pattern: '^(\\d{2}:\\d{2})?$',
+                                    type: 'string',
+                                },
+                                toHourTwo: {
+                                    errors: {
+                                        pattern: 'Enter time as HH:MM like 09:30',
+                                    },
+                                    pattern: '^(\\d{2}:\\d{2})?$',
+                                    type: 'string',
+                                },
                             },
-                        ],
+                            required: [
+                                'fromDay',
+                                'toDay',
+                                'fromHourOne',
+                                'toHourOne',
+                            ],
+                            type: 'object',
+                        },
                         maxItems: 7,
                         minItems: 0,
                         type: 'array',
@@ -229,8 +227,6 @@ describe('immutable-core-model-form - array of objects schema', function () {
             record: business,
         })
 
-        return
-
         assert.containSubset(businessForm.fields[1], {
             fields: [
                 {name: 'business[hoursOfOperation][2][fromDay]'},
@@ -259,6 +255,16 @@ describe('immutable-core-model-form - array of objects schema', function () {
                 ],
             ],
         })
+
+        assert.deepEqual(businessForm.fields[1].fields[0].options, [
+            { title: 'Sunday', value: 'Sunday' },
+            { title: 'Monday', value: 'Monday' },
+            { title: 'Tuesday', value: 'Tuesday' },
+            { title: 'Wednesday', value: 'Wednesday' },
+            { title: 'Thursday', value: 'Thursday' },
+            { title: 'Friday', value: 'Friday' },
+            { title: 'Saturday', value: 'Saturday' },
+        ])
     })
 
     it('should create new instance from input and errors', async function () {
