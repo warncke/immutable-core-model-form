@@ -1,5 +1,6 @@
 'use strict'
 
+const ImmutableAccessControl = require('immutable-access-control')
 const ImmutableCoreModel = require('immutable-core-model')
 const ImmutableCoreModelForm = require('../lib/immutable-core-model-form')
 const ImmutableDatabaseMariaSQL = require('immutable-database-mariasql')
@@ -33,6 +34,7 @@ describe('immutable-core-model-form - array of objects schema', function () {
     // fake session to use for testing
     var session = {
         accountId: '11111111111111111111111111111111',
+        roles: ['all', 'authenticated'],
         sessionId: '22222222222222222222222222222222',
     }
 
@@ -44,6 +46,7 @@ describe('immutable-core-model-form - array of objects schema', function () {
             // reset global data
             immutable.reset()
             ImmutableCoreModel.reset()
+            ImmutableAccessControl.reset()
             // drop any test tables if they exist
             await database.query('DROP TABLE IF EXISTS business')
             // model for testing
