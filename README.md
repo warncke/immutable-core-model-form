@@ -12,10 +12,10 @@ overriden to customize the form.
 Immutable Core Model Form requires Node.js v7.6.0 or greater with native
 async/await support.
 
-## Creating a From
+## Creating a Form From a Model
 
     const ImmutableCoreModel = require('immutable-core-model')
-    const ImmutableCoreModelFrom = require('immutable-core-model-form')
+    const ImmutableCoreModelForm = require('immutable-core-model-form')
 
     var addressModel = new ImmutableCoreModel({
         name: 'address',
@@ -109,6 +109,79 @@ A field group can be specified by providing an array value for the field. This
 array must consist of either string property names or object field
 specifications.
 
+## Creating a From Without a Model
+
+    var registerForm = new ImmutableCoreModelForm({
+        fields: [
+            {
+                inputType: 'text',
+                name: 'firstName'
+                placeholder: 'First Name',
+                required: true,
+            },
+            {
+                inputType: 'text',
+                name: 'lastName'
+                placeholder: 'Last Name',
+                required: true,
+            },
+            {
+                inputType: 'text',
+                name: 'email'
+                placeholder: 'Email',
+                required: true,
+            },
+            {
+                inputType: 'password',
+                name: 'password'
+                placeholder: 'Password',
+                required: true,
+            },
+        ],
+        method: 'post',
+        submit: {
+            title: 'Register',
+        },
+    })
+
+## Form Properties
+
+name            | description                                                  |
+----------------|--------------------------------------------------------------|
+action          | action property for form element - url form will submit to   |
+fields          | list of form fields may be field or sub-list of fields       |
+id              | id property for form element                                 |
+enctype         | enctype property for form element                            |
+method          | method property for form element                             |
+submit          | object with submit properties - if false will not render     |
+submit.title    | text value for submit button                                 |
+
+## Field Types
+
+name            |
+----------------|
+checkbox        |
+color           |
+hidden          |
+password        |
+select          |
+text            |
+
+## Field Properties
+
+name            | description                                                  |
+----------------|--------------------------------------------------------------|
+description     | description that will be shown in help tooltip               |
+id              | input id property, needed to link label to input             |
+inputSize       | size property for input                                      |
+label           | text that will be shown as label - false for no label        |
+name            | input name property                                          |
+pattern         | regex pattern for validating input value                     |
+placeholder     | placeholder to display in input - false for none             |
+readonly        | make input read only                                         |
+required        | make input required                                          |
+
+
 ## Units
 
 The unit option is used by the default Immutable App form view to set the grid
@@ -117,24 +190,6 @@ units that a field in a field group occupies. Immutable App uses
 
 If the unit option is not specified then it will be defaulted to 1-n where n is
 the number of fields in the field group.
-
-## Input Types
-
-### checkbox
-
-The checkbox input type is the default for properties of the boolean type.
-
-### hidden
-
-### radio
-
-### select
-
-The select input type is the default for properties with enumerated options.
-
-### text
-
-The text input type is the default.
 
 ## Creating a form instance from a record
 
