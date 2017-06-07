@@ -2,18 +2,18 @@
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
     "change-case": "3.0.1",
-    "immutable-core-model": "2.0.9",
+    "immutable-core-model": "2.0.11",
     "lodash": "4.17.4",
-    "merge-args": "0.2.7"
+    "merge-args": "0.2.8"
   },
   "description": "Forms for Immutable Core Models",
   "devDependencies": {
     "chai": "4.0.2",
     "chai-as-promised": "6.0.0",
     "chai-subset": "1.5.0",
-    "immutable-access-control": "0.4.4",
-    "immutable-core": "1.4.8",
-    "immutable-database-mariasql": "1.3.8",
+    "immutable-access-control": "0.4.6",
+    "immutable-core": "1.4.10",
+    "immutable-database-mariasql": "1.3.9",
     "mocha": "3.4.2"
   },
   "directories": {
@@ -29,5 +29,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.6.45"
+  "version": "0.6.46"
 }
