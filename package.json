@@ -9,10 +9,10 @@
   "description": "Forms for Immutable Core Models",
   "devDependencies": {
     "chai": "4.0.2",
-    "chai-as-promised": "6.0.0",
+    "chai-as-promised": "7.0.0",
     "chai-subset": "1.5.0",
     "immutable-access-control": "0.4.6",
-    "immutable-core": "1.4.12",
+    "immutable-core": "1.4.13",
     "immutable-database-mariasql": "1.3.10",
     "mocha": "3.4.2"
   },
@@ -29,5 +29,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.7.3"
+  "version": "0.7.4"
 }
