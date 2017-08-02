@@ -4,16 +4,16 @@
     "change-case": "3.0.1",
     "immutable-core-model": "3.0.0",
     "lodash": "4.17.4",
-    "merge-args": "0.2.9"
+    "merge-args": "0.2.10"
   },
   "description": "Forms for Immutable Core Models",
   "devDependencies": {
     "chai": "4.1.0",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.5.0",
-    "immutable-access-control": "0.4.10",
-    "immutable-core": "1.4.25",
-    "immutable-database-mariasql": "1.3.17",
+    "immutable-access-control": "0.4.11",
+    "immutable-core": "1.4.26",
+    "immutable-database-mariasql": "1.3.19",
     "mocha": "3.5.0"
   },
   "directories": {
@@ -29,5 +29,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.7.34"
+  "version": "0.7.35"
 }
