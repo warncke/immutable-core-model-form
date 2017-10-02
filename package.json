@@ -2,7 +2,7 @@
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
     "change-case": "3.0.1",
-    "immutable-core-model": "3.4.4",
+    "immutable-core-model": "3.4.5",
     "lodash": "4.17.4",
     "merge-args": "0.2.14"
   },
@@ -29,5 +29,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.9.4"
+  "version": "0.9.5"
 }
