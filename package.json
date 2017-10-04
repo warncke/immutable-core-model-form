@@ -27,7 +27,7 @@
   "name": "immutable-core-model-form",
   "repository": "warncke/immutable-core-model-form",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --exit"
   },
-  "version": "0.9.7"
+  "version": "0.9.9"
 }
