@@ -2,7 +2,7 @@
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
     "change-case": "3.0.1",
-    "immutable-core-model": "3.5.27",
+    "immutable-core-model": "3.6.1",
     "lodash": "4.17.4",
     "merge-args": "0.2.16"
   },
@@ -11,10 +11,10 @@
     "chai": "4.1.2",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.6.0",
-    "immutable-access-control": "0.5.13",
-    "immutable-core": "2.2.36",
+    "immutable-access-control": "0.5.14",
+    "immutable-core": "2.2.37",
     "immutable-database-mariasql": "1.3.45",
-    "mocha": "4.0.1"
+    "mocha": "4.1.0"
   },
   "directories": {
     "test": "test"
@@ -29,5 +29,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.9.67"
+  "version": "0.9.68"
 }
