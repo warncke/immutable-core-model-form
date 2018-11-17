@@ -3,7 +3,6 @@
 const ImmutableAccessControl = require('immutable-access-control')
 const ImmutableCoreModel = require('immutable-core-model')
 const ImmutableCoreModelForm = require('../lib/immutable-core-model-form')
-const ImmutableDatabaseMariaSQL = require('immutable-database-mariasql')
 const chai = require('chai')
 const immutable = require('immutable-core')
 const chaiSubset = require('chai-subset');
@@ -19,17 +18,13 @@ const dbUser = process.env.DB_USER || 'root'
 
 // use the same params for all connections
 const connectionParams = {
-    charset: 'utf8',
-    db: dbName,
+    database: dbName,
     host: dbHost,
     password: dbPass,
     user: dbUser,
 }
 
 describe('immutable-core-model-form', function () {
-
-    // create database connection to use for testing
-    var database = new ImmutableDatabaseMariaSQL(connectionParams)
 
     // fake session to use for testing
     var session = {
@@ -39,7 +34,12 @@ describe('immutable-core-model-form', function () {
     }
 
     // define in before
-    var addressModel, globalAddressModel
+    var addressModel, globalAddressModel, mysql
+
+    before(async function () {
+        // create database connection to use for testing
+        mysql = await ImmutableCoreModel.createMysqlConnection(connectionParams)
+    })
 
     beforeEach(async function () {
         try {
@@ -48,10 +48,10 @@ describe('immutable-core-model-form', function () {
             ImmutableCoreModel.reset()
             ImmutableAccessControl.reset()
             // drop any test tables if they exist
-            await database.query('DROP TABLE IF EXISTS address')
+            await mysql.query('DROP TABLE IF EXISTS address')
             // model for testing
             globalAddressModel = new ImmutableCoreModel({
-                database: database,
+                mysql: mysql,
                 name: 'address',
                 properties: {
                     addressCountry: {
