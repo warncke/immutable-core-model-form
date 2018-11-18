@@ -11,8 +11,8 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.6.0",
-    "immutable-access-control": "0.5.17",
-    "immutable-core": "2.3.2",
+    "immutable-access-control": "0.5.18",
+    "immutable-core": "2.3.3",
     "mocha": "5.2.0"
   },
   "directories": {
@@ -28,5 +28,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.9.70"
+  "version": "0.9.71"
 }
